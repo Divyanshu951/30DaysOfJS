@@ -17,7 +17,7 @@ body {
 .main-container {
   width: 100%;
   max-width: 800px;
-  background-color: #fff;
+  background-color: #e0e0e0;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@ h1 {
 
 .grid-item {
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 2px solid #fff;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -60,4 +60,35 @@ h1 {
 
 .grid-item a:hover {
   text-decoration: underline;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logos {
+  display: flex;
+  gap: 30px;
+}
+
+.git-logo,
+.x-logo {
+  color: #000;
+}
+
+.fab.fa-github {
+  color: #000;
+}
+
+.fab.fa-x-twitter {
+  color: #000;
+}
+
+.header-main .fab.fa-github {
+  color: #333;
+}
+
+.header-main .fab.fa-x-twitter {
+  color: #1da1f2;
 }
