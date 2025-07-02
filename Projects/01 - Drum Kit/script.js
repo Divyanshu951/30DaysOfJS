@@ -35,12 +35,12 @@ function playSound(e) {
   audio.play();
 }
 
-document.querySelectorAll(".key").forEach((key) => {
-  const keyCode = key.getAttribute("data-key");
+// document.querySelectorAll(".key").forEach((key) => {
+//   const keyCode = key.getAttribute("data-key");
 
-  key.addEventListener("click", () => playSound(keyCode));
-  key.addEventListener("touchstart", () => playSound(keyCode));
-});
+//   key.addEventListener("click", () => playSound(keyCode));
+//   key.addEventListener("touchstart", () => playSound(keyCode));
+// });
 
 window.addEventListener("keydown", playSound);
 
