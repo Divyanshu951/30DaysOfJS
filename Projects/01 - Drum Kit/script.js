@@ -3,44 +3,64 @@ const crashtap = document.getElementById("crash");
 
 function hihatMove() {
   hihatTop.style.top = "8.7rem";
-  setTimeout(function () {
+  setTimeout(() => {
     hihatTop.style.top = "8.5rem";
   }, 100);
 }
 
 function crashMove() {
   crashtap.style.transform = "rotate(0deg)";
-
-  setTimeout(function () {
+  setTimeout(() => {
     crashtap.style.transform = "rotate(-5deg)";
   }, 100);
 }
 
-function playSound(e) {
-  const keyCode = e.keyCode || e.target.getAttribute("data-key");
+function playSound(input) {
+  const keyCode =
+    typeof input === "object"
+      ? input.keyCode || input.target?.getAttribute("data-key")
+      : input;
 
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  const btn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  if (!audio) return;
-  btn.classList.toggle("playing");
+  const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+  const btn = document.querySelector(`.key[data-key="${keyCode}"]`);
+  if (!audio || !btn) return;
 
-  if (e.keyCode === 69 || e.keyCode === 82) crashMove();
-  if (e.keyCode === 73 || e.keyCode === 75) hihatMove();
+  btn.classList.add("playing");
 
-  setTimeout(function () {
-    btn.classList.toggle("playing");
+  if (Number(keyCode) === 69 || Number(keyCode) === 82) crashMove();
+  if (Number(keyCode) === 73 || Number(keyCode) === 75) hihatMove();
+
+  setTimeout(() => {
+    btn.classList.remove("playing");
   }, 200);
 
   audio.currentTime = 0;
   audio.play();
 }
 
-// document.querySelectorAll(".key").forEach((key) => {
-//   const keyCode = key.getAttribute("data-key");
+// Allow both click and touch on mobile
+const keys = [
+  "snare",
+  "kick",
+  "kick2",
+  "tom-high",
+  "tom-mid",
+  "tom-low",
+  "crash",
+  "ride",
+  "hihat-open",
+  "hihat-close",
+];
 
-//   key.addEventListener("click", () => playSound(keyCode));
-//   key.addEventListener("touchstart", () => playSound(keyCode));
-// });
+keys.forEach((className) => {
+  const element = document.querySelector(`.${className}`);
+  if (!element) return;
+
+  const keyCode = element.getAttribute("data-key");
+
+  element.addEventListener("click", () => playSound(keyCode));
+  element.addEventListener("touchstart", () => playSound(keyCode));
+});
 
 window.addEventListener("keydown", playSound);
 

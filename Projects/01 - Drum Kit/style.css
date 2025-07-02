@@ -5,10 +5,27 @@
 }
 
 body {
+  font-family: "Roboto Mono", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: #eeaeca;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  color: #fff;
+}
+
+h1 {
+  position: fixed;
+  font-family: "Cedarville Cursive", cursive;
+
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .main-container {
@@ -25,7 +42,7 @@ body {
   align-items: center;
   position: relative;
 
-  background-color: #fff;
+  background-color: #504e4e;
 }
 
 #crash {
@@ -39,9 +56,6 @@ body {
   position: absolute;
   top: 8.5rem;
   left: 21.5rem;
-}
-
-#drum-kit {
 }
 
 .key {
