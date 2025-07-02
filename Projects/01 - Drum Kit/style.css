@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  position: relative;
+}
+
+.kit-container {
+  padding: 20px 60px;
+  border: 1px solid #e4e3e35a;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  background-color: #fff;
+}
+
+#crash {
+  position: absolute;
+  top: 6.1rem;
+  left: 6.4rem;
+  transform: rotate(-5deg);
+}
+
+#hihat-top {
+  position: absolute;
+  top: 8.5rem;
+  left: 21.5rem;
+}
+
+#drum-kit {
+}
+
+.key {
+  position: absolute;
+  z-index: 1001;
+  top: 10px;
+  color: #444;
+  background-color: #eaeaea;
+  font-size: 1.25em;
+  padding: 2px 5px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 3px solid #aaa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#play-song {
+  margin: auto;
+  background-color: #ea4c89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#play-song:hover,
+#play-song:focus {
+  background-color: #f082ac;
+}
+
+.playing {
+  transform: scale(1.12);
+}
+
+.snare {
+  top: 13.5rem;
+  left: 23rem;
+}
+
+.kick {
+  top: 18rem;
+  left: 18.5rem;
+}
+
+.kick2 {
+  top: 18rem;
+  left: 15.5rem;
+}
+
+.crash {
+  top: 4.3rem;
+  left: 7.5rem;
+}
+
+.tom-high {
+  top: 12.4rem;
+  left: 19.2rem;
+}
+
+.tom-mid {
+  top: 11.5rem;
+  left: 14rem;
+}
+
+.tom-low {
+  top: 16rem;
+  left: 10rem;
+}
+
+.ride {
+  top: 4.5rem;
+  left: 12rem;
+}
+
+.hihat-open {
+  top: 7.5rem;
+  left: 22.5rem;
+}
+
+.hihat-close {
+  top: 7.5rem;
+  left: 27rem;
+}
