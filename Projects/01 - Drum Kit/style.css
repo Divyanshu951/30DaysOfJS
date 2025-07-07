@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #eeaeca;
   background: radial-gradient(
     circle,
@@ -17,6 +17,7 @@ body {
     rgba(148, 187, 233, 1) 100%
   );
   color: #fff;
+  padding-bottom: 60px; /* Add padding to prevent button overlap */
 }
 
 h1 {
@@ -28,6 +29,7 @@ h1 {
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
 
 .main-container {
@@ -43,7 +45,6 @@ h1 {
   justify-content: center;
   align-items: center;
   position: relative;
-
   background-color: #504e4e;
 }
 
@@ -63,7 +64,6 @@ h1 {
 .key {
   position: absolute;
   z-index: 1001;
-  top: 10px;
   color: #444;
   background-color: #eaeaea;
   font-size: 1.25em;
@@ -72,39 +72,34 @@ h1 {
   border-radius: 4px;
   border: 3px solid #aaa;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.07s ease;
 }
 
 #play-song {
-  margin: auto;
   background-color: #ea4c89;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
-  display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 40px;
   line-height: 20px;
-  list-style: none;
-  margin: 0;
-  outline: none;
   padding: 10px 16px;
-  position: relative;
   text-align: center;
   text-decoration: none;
   transition: color 100ms;
-  vertical-align: baseline;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  position: absolute;
-  bottom: 0.5rem;
+  position: fixed; /* Changed to fixed for better mobile placement */
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1002;
 }
 
 #play-song:hover,
@@ -114,65 +109,89 @@ h1 {
 
 .playing {
   transform: scale(1.12);
+  border-color: #ffc600;
+  box-shadow: 0 0 10px #ffc600;
 }
 
+/* Original Desktop Positions */
 .snare {
   top: 13.5rem;
   left: 23rem;
 }
-
 .kick {
   top: 18rem;
   left: 18.5rem;
 }
-
 .kick2 {
   top: 18rem;
   left: 15.5rem;
 }
-
 .crash {
   top: 4.3rem;
   left: 7.5rem;
 }
-
 .tom-high {
   top: 12.4rem;
   left: 19.2rem;
 }
-
 .tom-mid {
   top: 11.5rem;
   left: 14rem;
 }
-
 .tom-low {
   top: 16rem;
   left: 10rem;
 }
-
 .ride {
   top: 4.5rem;
   left: 12rem;
 }
-
 .hihat-open {
   top: 7.5rem;
   left: 22.5rem;
 }
-
 .hihat-close {
   top: 7.5rem;
   left: 27rem;
 }
 
-@media (max-width: 375px) {
+/*
+=========================================
+== MOBILE RESPONSIVE STYLES ==
+=========================================
+*/
+@media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 
+  /* Hide the decorative drum kit image on mobile */
   .kit-container {
-    max-width: 90%;
-    padding: 10px;
+    display: none;
+  }
+
+  /* Arrange keys in a flexible grid */
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Spacing between keys */
+    padding: 20px;
+    margin-top: 50px; /* Space below the title */
+  }
+
+  .key {
+    position: static; /* Remove absolute positioning */
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-width: 4px;
+  }
+
+  .playing {
+    transform: scale(1.1); /* Slightly adjust animation for mobile */
   }
 }
