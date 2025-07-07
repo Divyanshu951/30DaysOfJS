@@ -162,15 +162,13 @@ h1 {
 */
 @media (max-width: 768px) {
   h1 {
-    font-size: 24px;
+    font-size: 1.2rem;
   }
 
-  /* Hide the decorative drum kit image on mobile */
   .kit-container {
     display: none;
   }
 
-  /* Arrange keys in a flexible grid */
   .main-container {
     display: flex;
     flex-wrap: wrap;
@@ -181,7 +179,7 @@ h1 {
   }
 
   .key {
-    position: static; /* Remove absolute positioning */
+    position: static;
     width: 80px;
     height: 80px;
     display: flex;
@@ -192,6 +190,6 @@ h1 {
   }
 
   .playing {
-    transform: scale(1.1); /* Slightly adjust animation for mobile */
+    transform: scale(1.1);
   }
 }
